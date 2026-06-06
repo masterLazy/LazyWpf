@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="LazyWpf.ProgBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LazyWpf"
+             x:Name="root"
+             mc:Ignorable="d">
+    <ProgressBar x:Name="ProgressBar"
+                 Width="{Binding ElementName=root, Path=Width}"
+                 Height="{Binding ElementName=root, Path=Height}"
+                 Minimum="{Binding ElementName=root, Path=Minimum}"
+                 Maximum="{Binding ElementName=root, Path=Maximum}"
+                 Value="{Binding ElementName=root, Path=Value}"
+                 Background="{Binding ElementName=root, Path=Background}"
+                 IsIndeterminate="{Binding ElementName=root, Path=IsIndeterminate}"/>
+</UserControl>

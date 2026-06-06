@@ -1,11 +1,37 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
+	<Version>1.0.0</Version>
+    <Authors>masterLazy</Authors>
+    <Company />
+    <PackageProjectUrl>https://github.com/masterLazy/LazyWpf</PackageProjectUrl>
+    <Copyright>Copyright 2026 masterLazy</Copyright>
+    <PackageIcon>LazyWpf.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/masterLazy/LazyWpf</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Description>Lightweight UI library for enhancing WPF developing experience</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\img\LazyWpf.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="res\Lang.Designer.cs">

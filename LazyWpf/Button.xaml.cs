@@ -26,7 +26,7 @@ namespace LazyWpf {
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register("Text", typeof(string), typeof(Button));
         public string Text {
-            get { return (string)GetValue(TextProperty); }
+            get => (string)GetValue(TextProperty); 
             set {
                 SetValue(TextProperty, value);
                 SetMargin();
@@ -37,7 +37,7 @@ namespace LazyWpf {
         public static readonly DependencyProperty IconProperty =
             DependencyProperty.Register("Icon", typeof(string), typeof(Button));
         public string Icon {
-            get { return (string)GetValue(IconProperty); }
+            get => (string)GetValue(IconProperty); 
             set {
                 SetValue(IconProperty, value);
                 SetMargin();
@@ -48,7 +48,7 @@ namespace LazyWpf {
         public static readonly DependencyProperty IsAccentedProperty =
             DependencyProperty.Register("IsAccented", typeof(bool), typeof(Button));
         public bool IsAccented {
-            get { return (bool)GetValue(IsAccentedProperty); }
+            get => (bool)GetValue(IsAccentedProperty);
             set {
                 SetValue(IsAccentedProperty, value);
                 if (value) {
@@ -63,8 +63,8 @@ namespace LazyWpf {
         public static readonly RoutedEvent ClickEvent =
             ButtonBase.ClickEvent.AddOwner(typeof(Button));
         public event RoutedEventHandler Click {
-            add { AddHandler(ClickEvent, value); }
-            remove { RemoveHandler(ClickEvent, value); }
+            add => AddHandler(ClickEvent, value);
+            remove => RemoveHandler(ClickEvent, value);
         }
 
         public Button() {

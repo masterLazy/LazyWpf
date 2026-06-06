@@ -19,5 +19,9 @@
             <lazy:Button Margin="5" Icon="&#xE737;" Text="Show MsgBox" Click="Button_Click_1" Height="40"/>
             <TextBlock Margin="5" Text="{Binding ElementName=root, Path=MsgBoxResult, Mode=TwoWay}" VerticalAlignment="Center"/>
         </StackPanel>
+        <Slider Margin="5" Minimum="0" Maximum="100" x:Name="Slider"
+                IsSnapToTickEnabled="True" TickFrequency="20" TickPlacement="Both"/>
+        <lazy:ProgBar Margin="5" Height="5" Minimum="0" Maximum="100"
+                      Value="{Binding ElementName=Slider, Path=Value}" Background="LightGray"/>
     </StackPanel>
 </Window>

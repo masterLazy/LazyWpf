@@ -6,6 +6,9 @@
 
 本项目主要为满足个人需求而开发。
 
-## 许可证
+详细使用教程见： [Usage](USAGE.md)
+
+## License
 
 本项目以 Apache License 2.0 许可。
+

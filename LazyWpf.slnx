@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="LazyWpf.Test/LazyWpf.Test.csproj" Id="afd6b4e3-fdc1-4e21-8a13-6b458e91571d" />
+  <Project Path="LazyWpf/LazyWpf.csproj" Id="f7a85974-b4bf-408c-b955-272443e6837b" />
+</Solution>

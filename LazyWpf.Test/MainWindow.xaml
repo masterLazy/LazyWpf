@@ -21,7 +21,7 @@
         </StackPanel>
         <Slider Margin="5" Minimum="0" Maximum="100" x:Name="Slider"
                 IsSnapToTickEnabled="True" TickFrequency="20" TickPlacement="Both"/>
-        <lazy:ProgBar Margin="5" Height="5" Minimum="0" Maximum="100"
+        <lazy:ProgBar Margin="5" Height="5" Minimum="0" Maximum="100" FadeOutWhenComplete="True"
                       Value="{Binding ElementName=Slider, Path=Value}" Background="LightGray"/>
     </StackPanel>
 </Window>

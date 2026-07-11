@@ -27,7 +27,7 @@ namespace LazyWpf {
         public static readonly DependencyProperty MinimumProperty =
             DependencyProperty.Register("Minimum", typeof(int), typeof(ProgBar));
         public int Minimum {
-            get => (int)GetValue(MinimumProperty); 
+            get => (int)GetValue(MinimumProperty);
             set => SetValue(MinimumProperty, value);
         }
 
@@ -35,7 +35,7 @@ namespace LazyWpf {
         public static readonly DependencyProperty MaximumProperty =
             DependencyProperty.Register("Maximum", typeof(int), typeof(ProgBar));
         public int Maximum {
-            get => (int)GetValue(MaximumProperty); 
+            get => (int)GetValue(MaximumProperty);
             set => SetValue(MaximumProperty, value);
         }
 
@@ -64,18 +64,33 @@ namespace LazyWpf {
             set => SetValue(BackgroundProperty, value);
         }
 
+        // 属性 "FadeOutWhenComplete"
+        public static new readonly DependencyProperty FadeOutWhenCompleteProperty =
+            DependencyProperty.Register("FadeOutWhenComplete", typeof(bool), typeof(ProgBar));
+        public bool FadeOutWhenComplete {
+            get => (bool)GetValue(FadeOutWhenCompleteProperty);
+            set => SetValue(FadeOutWhenCompleteProperty, value);
+        }
+
         public ProgBar() {
             InitializeComponent();
         }
 
-        // 平滑动画
+        // 动画
         private static void OnValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) {
             var control = (ProgBar)d;
             control.AnimateToValue((int)e.NewValue);
+
+            if (!control.IsIndeterminate && control.FadeOutWhenComplete) {
+                if ((int)e.NewValue >= control.Maximum)
+                    control.AnimateOpacityTo(0.0, 300);
+                else
+                    control.AnimateOpacityTo(1.0, 0);
+            }
         }
 
+        // 进度动画
         private void AnimateToValue(double targetValue) {
-            // 别被 IDE 骗了，"ProgressBar." 不可省
             ProgressBar.BeginAnimation(ProgressBar.ValueProperty, null);
             var animation = new DoubleAnimation {
                 From = ProgressBar.Value,
@@ -84,6 +99,18 @@ namespace LazyWpf {
                 EasingFunction = new QuadraticEase()
             };
             ProgressBar.BeginAnimation(ProgressBar.ValueProperty, animation);
+        }
+
+        // 渐隐动画
+        private void AnimateOpacityTo(double targetOpacity, long delay) {
+            ProgressBar.BeginAnimation(ProgressBar.OpacityProperty, null);
+            var animation = new DoubleAnimation {
+                To = targetOpacity,
+                Duration = TimeSpan.FromMilliseconds(300),
+                EasingFunction = new QuadraticEase(),
+                BeginTime = TimeSpan.FromMilliseconds(delay)
+            };
+            ProgressBar.BeginAnimation(ProgressBar.OpacityProperty, animation);
         }
     }
 }

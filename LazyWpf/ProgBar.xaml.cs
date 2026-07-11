@@ -112,5 +112,11 @@ namespace LazyWpf {
             };
             ProgressBar.BeginAnimation(ProgressBar.OpacityProperty, animation);
         }
+
+        private void root_Loaded(object sender, RoutedEventArgs e) {
+            if (!IsIndeterminate && FadeOutWhenComplete && Value >= Maximum) {
+                ProgressBar.Opacity = 0;
+            }
+        }
     }
 }
